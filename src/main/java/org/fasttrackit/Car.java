@@ -10,5 +10,9 @@ public class Car {
     String color;
     double fuelLevel;
     boolean damaged; //boolean are numai 2 valori - true sau false
+    // "has-a" relationship / Aggregation
+    Engine engine;
+
+
 
 }
