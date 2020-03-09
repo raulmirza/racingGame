@@ -17,6 +17,7 @@ public class App
         carReference.mileage = 6.2;
         carReference.racingNumber = 8679;
         carReference.fuelLevel = 12.2;
+        carReference.damaged = true;
 
 //        carReference.engine = new Engine();
 //        carReference.engine.manufacturer = "VW";
@@ -31,6 +32,10 @@ public class App
         double curentDistance = carReference.accelerate(60, 1);
 
         System.out.println(" Current distance: " + curentDistance);
+
+        Mechanic mechanic = new Mechanic();
+        mechanic.repair(carReference);
+        System.out.println(" Is car damaged? " + carReference.damaged);
 
 
         // One object with two refernces
