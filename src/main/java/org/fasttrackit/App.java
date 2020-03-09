@@ -27,7 +27,6 @@ public class App
         engine1.capacity = 2000;
 
         carReference.engine = engine1;
-
         // One object with two refernces
         System.out.println("Engine details");
         System.out.println(engine1.capacity);
