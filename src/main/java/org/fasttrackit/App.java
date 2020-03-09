@@ -27,6 +27,12 @@ public class App
         engine1.capacity = 2000;
 
         carReference.engine = engine1;
+
+        double curentDistance = carReference.accelerate(60, 1);
+
+        System.out.println(" Current distance: " + curentDistance);
+
+
         // One object with two refernces
         System.out.println("Engine details");
         System.out.println(engine1.capacity);
