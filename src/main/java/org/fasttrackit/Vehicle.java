@@ -1,6 +1,9 @@
 package org.fasttrackit;
 
 public class Vehicle {
+    // static variable
+   static int totalVehicleCount;
+
     //instance variables
     int racingNumber;  // int pt numere intregi
     String name;  //string pt siruri,litere
@@ -11,6 +14,9 @@ public class Vehicle {
     boolean damaged; //boolean are numai 2 valori - true sau false
     double totalDistance;
 
+    public Vehicle(){
+        totalVehicleCount++;
+    }
     public double accelerate (double speed, double durationInHours) {
 
         if (fuelLevel <= 0) {
@@ -26,9 +32,10 @@ public class Vehicle {
         } else if (speed == maxSpeed) {
             System.out.println(" Be careful! Max speed reached! ");
 
+
         } else {
             System.out.println(" Valid speed entered ");
-
+        }
             double mileageMultiplier = 1;
 
             if (speed > 120) {
