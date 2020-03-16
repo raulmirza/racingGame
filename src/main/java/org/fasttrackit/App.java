@@ -6,9 +6,14 @@ import java.util.Scanner;
  * Hello world!
  *
  */
-public class App 
+public class App
+
 {
     public static void main( String[] args ) {
+        Game game = new Game();
+        game.start();
+
+
 
         System.out.println(" Please enter vechicle name: ");
         Scanner scanner = new Scanner(System.in);
