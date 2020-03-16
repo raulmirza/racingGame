@@ -13,7 +13,7 @@ public class Vehicle {
 
     public double accelerate (double speed, double durationInHours) {
 
-        if (fuelLevel <= 0 ) {
+        if (fuelLevel <= 0) {
 
             System.out.println(" Not enough fuel.");
             return 0;
@@ -28,33 +28,38 @@ public class Vehicle {
 
         } else {
             System.out.println(" Valid speed entered ");
+
+            double mileageMultiplier = 1;
+
+            if (speed > 120) {
+                mileageMultiplier = speed / 100;
+
+
+            }
+
+
+            System.out.println(name + " is accelerating with " + speed + " km/h " + durationInHours + " h ");
+            // local variables
+
+            double traveledDistance = speed * durationInHours;
+
+            System.out.println(" traveled distance " + traveledDistance);
+
+            totalDistance += traveledDistance;
+
+            System.out.println(" Total traveled distance : " + totalDistance);
+
+            double usedFuel = traveledDistance * mileage / 100;
+
+            usedFuel *= mileageMultiplier;
+
+            fuelLevel = fuelLevel - usedFuel;
+
+            System.out.println(" remaningFuel: " + fuelLevel);
+
+            return traveledDistance;
+
+
         }
-
-        System.out.println(name + " is accelerating with " + speed + " km/h " + durationInHours + " h " );
-        // local variables
-
-        double traveledDistance = speed * durationInHours;
-
-        System.out.println(" traveled distance " + traveledDistance);
-
-        totalDistance += traveledDistance;
-
-        System.out.println(" Total traveled distance : " + totalDistance);
-
-        double usedFuel = traveledDistance * mileage / 100;
-
-        fuelLevel = fuelLevel - usedFuel;
-
-        System.out.println(" remaningFuel: " + fuelLevel);
-
-        return traveledDistance;
-
-
-
-
-
-
-
-
     }
-}
+
