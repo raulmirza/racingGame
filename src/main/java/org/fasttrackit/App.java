@@ -12,25 +12,26 @@ public class App
     public static void main( String[] args ) {
 
 
-      // Game game = new Game();
-     //  game.start();
+       Game game = new Game();
+
+       game.start();
 
         Vehicle vehicle1 = new Vehicle();
-        vehicle1.totalVehicleCount = 1;
+        Vehicle.totalVehicleCount = 1;
 
         Vehicle vehicle2 = new Vehicle();
-        vehicle2.totalVehicleCount = 2;
+        Vehicle.totalVehicleCount = 2;
 
         Vehicle.totalVehicleCount = 50;
 
-        System.out.println("Total count from vehicle1:" + vehicle1.totalVehicleCount);
-        System.out.println("Total count from vehicle1:" + vehicle2.totalVehicleCount);
-        System.out.println("Total vehicle cout:" + vehicle1.totalVehicleCount);
+        System.out.println("Total count from vehicle1:" + Vehicle.totalVehicleCount);
+        System.out.println("Total count from vehicle1:" + Vehicle.totalVehicleCount);
+        System.out.println("Total vehicle count:" + Vehicle.totalVehicleCount);
 
-        System.out.println(" Please enter vechicle name: ");
+        System.out.println(" Please enter vehicle name: ");
         Scanner scanner = new Scanner(System.in);
-        String userImput = scanner.nextLine();
-        System.out.println(" Entered name: " + userImput);
+        String userInput = scanner.nextLine();
+        System.out.println(" Entered name: " + userInput);
 
 
         Scanner scanner2 = new Scanner(System.in);
@@ -42,7 +43,7 @@ public class App
         engine1.manufacturer = "VW";
         engine1.capacity = 2000;
 
-        Car carReference = new Car(new Engine());
+        Car carReference = new Car(engine1);
         carReference.name = "Audi";
         carReference.color = "red";
         carReference.maxSpeed = 260;
@@ -94,7 +95,7 @@ public class App
         System.out.println(carReference.name);
 
         Car car2 = new Car(new Engine());
-        car2.name = "Lambourghini";
+        car2.name = "Lamborghini";
         car2.damaged = true;
 
         System.out.println("Properties of " + car2.name);

@@ -2,26 +2,33 @@ package org.fasttrackit;
 
 import java.util.Scanner;
 
-public class Game {
-    public void start() {
+
+public class Game{
+
+    public void start(){
+
         System.out.println("Welcome!");
 
-        int playerCount = getPlayerCountFromUser();
+        int playerCountFromUser = getPlayerCountFromUser();
     }
+     private String getVehicleNameFromUser(){
 
-    private String getVehicleNameFromUser() {
-        System.out.println("Please enter vehicle name:");
+        System.out.println("Please enter vechicle name: ");
+
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
 
+        return scanner.next();
     }
+    private int getPlayerCountFromUser(){
 
-    private int getPlayerCountFromUser() {
-        System.out.println("please enter number of players:");
+        System.out.println("Please enter the number of players: ");
+
         Scanner scanner = new Scanner(System.in);
+
         return scanner.nextInt();
-
-
     }
 
 }
+
+
+
