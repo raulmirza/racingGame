@@ -16,6 +16,11 @@ public class App
 
        game.start();
 
+       CheatingVehicle cheater = new CheatingVehicle();
+       cheater.setName("Cheater");
+       cheater.accelerate(60,1);
+        System.out.println("Total distance: " + cheater.getTotalDistance());
+
         Vehicle vehicle1 = new Vehicle();
         Vehicle.totalVehicleCount = 1;
 
@@ -36,75 +41,79 @@ public class App
 
         Scanner scanner2 = new Scanner(System.in);
         String enteredNumber = scanner2.nextLine();
-
+//
         System.out.println( "Welcome to the racing game!" );
 
         Engine engine1 = new Engine();
-        engine1.manufacturer = "VW";
-        engine1.capacity = 2000;
+        engine1.setManufacturer("VW");
+        engine1.setCapacity(2000);
 
         Car carReference = new Car(engine1);
-        carReference.name = "Audi";
-        carReference.color = "red";
-        carReference.maxSpeed = 260;
-        carReference.mileage = 6.2;
-        carReference.racingNumber = 8679;
-        carReference.fuelLevel = 12.2;
-        carReference.damaged = true;
+        carReference.setName("Audi");
+        carReference.setColor("red");
+        carReference.setMaxSpeed(260);
+        carReference.setMileage(6.2);
+        carReference.setRacingNumber(8679);
+        carReference.setFuelLevel(12.2);
+        carReference.setDamaged(true);
 
-//        carReference.engine = new Engine();
-//        carReference.engine.manufacturer = "VW";
-//        carReference.engine.capacity = 2000;
+        System.out.println(carReference);
+
+     System.out.println(" name " + carReference.getName());
+
+        carReference.engine = new Engine();
+        carReference.engine.setManufacturer("VW");
+        carReference.engine.setCapacity(2000);
 
 
 
 
-        double curentDistance = carReference.accelerate (60, 1);
+        double currentDistance = carReference.accelerate (60, 1);
 
-        System.out.println(" Current distance: " + curentDistance);
+        System.out.println(" Current distance: " + currentDistance);
 
         Mechanic mechanic = new Mechanic();
         mechanic.repair(carReference);
-        System.out.println(" Is car damaged? " + carReference.damaged);
+        System.out.println(" Is car damaged? " + carReference.isDamaged());
 
 
-        // One object with two refernces
+        // One object with two references
         System.out.println("Engine details");
-        System.out.println(engine1.capacity);
-        System.out.println(carReference.engine.capacity);
+        System.out.println(engine1.getCapacity());
+        System.out.println(carReference.engine.getCapacity());
 
-        engine1.capacity = 2100;
+        engine1.setCapacity(2100);
 
         System.out.println("Updated engine details");
-        System.out.println(engine1.capacity);
-        System.out.println(carReference.engine.capacity);
-
-
-
+        System.out.println(engine1.getCapacity());
+        System.out.println(carReference.engine.getCapacity());
+//
+//
+//
         // concatenation
-        System.out.println("Properties of " + carReference.name);  //folosim sout
-        System.out.println("Color: " + carReference.color);
-        System.out.println("maxSpeed: " + carReference.maxSpeed);
-        System.out.println("mileage: " + carReference.mileage);
-        System.out.println("Fuel level: " + carReference.fuelLevel);
-        System.out.println("Racing number: " + carReference.racingNumber);
-        System.out.println("Damaged: " + carReference.damaged);
+        System.out.println("Properties of " + carReference.getName());  //folosim sout
+        System.out.println("Color: " + carReference.getColor());
+        System.out.println("maxSpeed: " + carReference.getMaxSpeed());
+        System.out.println("mileage: " + carReference.getMileage());
+        System.out.println("Fuel level: " + carReference.getFuelLevel());
+        System.out.println("Racing number: " + carReference.getRacingNumber());
+        System.out.println("Damaged: " + carReference.isDamaged());
 
         //carReference = null;
 
-        System.out.println(carReference.name);
+        System.out.println(carReference.getName());
 
         Car car2 = new Car(new Engine());
-        car2.name = "Lamborghini";
-        car2.damaged = true;
+        car2.setName("Lamborghini");
+        car2.setDamaged(true);
 
-        System.out.println("Properties of " + car2.name);
-        System.out.println("Damaged: " + car2.damaged);
-        System.out.println("Color: " + car2.color);
+        System.out.println("Properties of " + car2.getName());
+        System.out.println("Damaged: " + car2.isDamaged());
+        System.out.println("Color: " + car2.getColor());
 
-//        System.out.println(4 % 2);
-//        System.out.println( 4 % 2 == 0);
-//        System.out.println(4 % 3);
+        System.out.println(4 % 2);
+        System.out.println( 4 % 2 == 0);
+        System.out.println(4 % 3);
 
 
 

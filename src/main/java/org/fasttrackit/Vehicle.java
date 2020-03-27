@@ -5,18 +5,24 @@ public class Vehicle {
    static int totalVehicleCount;
 
     //instance variables
-    int racingNumber;  // int pt numere intregi
-    String name;  //string pt siruri,litere
-    int maxSpeed;
-    double mileage;  // double pt numere cu virgula
-    String color;
-    double fuelLevel;
-    boolean damaged; //boolean are numai 2 valori - true sau false
-    double totalDistance;
+   private int racingNumber;  // int pt numere intregi
+   private String name;  //string pt siruri,litere
+   private int maxSpeed;
+   private double mileage;  // double pt numere cu virgula
+   private String color;
+   private double fuelLevel;
+   private boolean damaged; //boolean are numai 2 valori - true sau false
+   private double totalDistance;
 
     public Vehicle(){
         totalVehicleCount++;
     }
+
+    public double accelerate(double speed){
+        return accelerate(speed,1);
+    }
+
+
     public double accelerate (double speed, double durationInHours) {
 
         if (fuelLevel <= 0) {
@@ -67,6 +73,10 @@ public class Vehicle {
             return traveledDistance;
 
 
+        }
+//        co-variant return type
+        protected Vehicle clone(){
+        return new Vehicle();
         }
 
 
@@ -132,6 +142,20 @@ public class Vehicle {
 
     public void setTotalDistance(double totalDistance) {
         this.totalDistance = totalDistance;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "racingNumber=" + racingNumber +
+                ", name='" + name + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                ", mileage=" + mileage +
+                ", color='" + color + '\'' +
+                ", fuelLevel=" + fuelLevel +
+                ", damaged=" + damaged +
+                ", totalDistance=" + totalDistance +
+                '}';
     }
 }
 
