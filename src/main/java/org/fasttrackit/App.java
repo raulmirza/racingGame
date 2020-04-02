@@ -16,6 +16,13 @@ public class App
 
        game.start();
 
+// string pool
+//       String a = "test";
+//       String b = "test";
+//       String c = new String("test");
+//        System.out.println(a == b);
+//        System.out.println(a.equals(c));
+
 // method implementation taken from object's class, not from variable's class
 
 //        Vehicle cheater = new CheatingVehicle();
