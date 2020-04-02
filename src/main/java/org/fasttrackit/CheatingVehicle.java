@@ -11,9 +11,14 @@ public class CheatingVehicle extends Vehicle {
         return distance;
 
     }
-//    access can be less restricted.
-    protected CheatingVehicle clone(){
+
+    //    access can be less restricted.
+    protected CheatingVehicle clone() {
         return new CheatingVehicle();
+    }
+
+    public void fly(){
+        System.out.println("flying");
     }
 }
 

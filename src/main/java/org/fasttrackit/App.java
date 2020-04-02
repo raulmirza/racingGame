@@ -16,10 +16,13 @@ public class App
 
        game.start();
 
-       CheatingVehicle cheater = new CheatingVehicle();
-       cheater.setName("Cheater");
-       cheater.accelerate(60,1);
+// method implementation taken from object's class, not from variable's class
+
+        Vehicle cheater = new CheatingVehicle();
+        cheater.setName("Cheater");
+        cheater.accelerate(60,1);
         System.out.println("Total distance: " + cheater.getTotalDistance());
+        ((CheatingVehicle)cheater).fly();
 
         Vehicle vehicle1 = new Vehicle();
         Vehicle.totalVehicleCount = 1;
@@ -59,11 +62,11 @@ public class App
 
         System.out.println(carReference);
 
-     System.out.println(" name " + carReference.getName());
+        System.out.println(" name " + carReference.getName());
 
-        carReference.engine = new Engine();
-        carReference.engine.setManufacturer("VW");
-        carReference.engine.setCapacity(2000);
+        carReference.setEngine(new Engine());
+        carReference.getEngine().setManufacturer("VW");
+        carReference.getEngine().setCapacity(2000);
 
 
 
@@ -80,13 +83,13 @@ public class App
         // One object with two references
         System.out.println("Engine details");
         System.out.println(engine1.getCapacity());
-        System.out.println(carReference.engine.getCapacity());
+        System.out.println(carReference.getEngine().getCapacity());
 
         engine1.setCapacity(2100);
 
         System.out.println("Updated engine details");
         System.out.println(engine1.getCapacity());
-        System.out.println(carReference.engine.getCapacity());
+        System.out.println(carReference.getEngine().getCapacity());
 //
 //
 //
