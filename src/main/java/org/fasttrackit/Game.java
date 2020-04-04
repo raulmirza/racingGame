@@ -26,16 +26,22 @@ public class Game {
 
         initializeCompetitors();
 
+        playOneRound();
+
     }
 
     private void playOneRound(){
 
         System.out.println("New Round");
-        for ( Vehicle vehicle : competitors){
-            vehicle.accelerate(100);
+        for ( Vehicle vehicle : competitors) {
+            System.out.println("It's " + vehicle.getName() + "'s turn.");
+            double speed = getAccelerationSpeedFromUser();
+            vehicle.accelerate(speed);
         }
     }
+
     private void initializeCompetitors() {
+
         int playerCount = getPlayerCountFromUser();
 
         for (int i = 0; i < playerCount; i++) {
@@ -51,7 +57,9 @@ public class Game {
             competitors.add(vehicle);
         }
     }
+
     private void initializeTracks() {
+
         Track track1 = new Track();
         track1.setName("Imola");
         track1.setLength(3500);
@@ -67,7 +75,9 @@ public class Game {
     }
 
     private void displayTracks() {
+
         System.out.println("Available tracks:");
+
 // classic for loup
         for (int i = 0; i < tracks.length; i++) {
             if (tracks[i] != null) {
@@ -76,27 +86,36 @@ public class Game {
         }
     }
 
-    private Track getSelectedTrackFromUser(){
+    private Track getSelectedTrackFromUser() {
+
         System.out.println("Please select a track.");
         Scanner scanner = new Scanner(System.in);
         int trackNumber = scanner.nextInt();
         return tracks[trackNumber - 1];
+
     }
-     private String getVehicleNameFromUser(){
+
+     private String getVehicleNameFromUser() {
 
         System.out.println("Please enter vehicle name: ");
-
         Scanner scanner = new Scanner(System.in);
-
         return scanner.next();
     }
+
     private int getPlayerCountFromUser(){
 
         System.out.println("Please enter the number of players: ");
-
         Scanner scanner = new Scanner(System.in);
-
         return scanner.nextInt();
+
+    }
+
+    private double getAccelerationSpeedFromUser() {
+
+        System.out.println("Please enter speed:");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextDouble();
+
     }
 
 }
