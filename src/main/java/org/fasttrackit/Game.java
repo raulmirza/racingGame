@@ -11,6 +11,9 @@ public class Game {
 
     private Track[] tracks = new Track[3];
     private List<Vehicle> competitors = new ArrayList<Vehicle>();
+    private Track selectedTrack;
+    private boolean winnerNotKnown = true;
+    private int competitorsWithoutFUel = 0;
 
     public void start() throws Exception {
 
@@ -18,26 +21,33 @@ public class Game {
         System.out.println("Welcome!");
 
 
-
         initializeTracks();
         displayTracks();
 
-        Track selectedTrack = getSelectedTrackFromUser();
+        selectedTrack = getSelectedTrackFromUser();
         System.out.println("Selected track: " + selectedTrack.getName());
 
         initializeCompetitors();
 
-        playOneRound();
+        while (winnerNotKnown && competitorsWithoutFUel < competitors.size()){
+            playOneRound();
 
+        }
     }
-
     private void playOneRound(){
 
-        System.out.println("New Round");
+        System.out.println("\nNew Round");
         for ( Vehicle vehicle : competitors) {
             System.out.println("It's " + vehicle.getName() + "'s turn.");
             double speed = getAccelerationSpeedFromUser();
+
             vehicle.accelerate(speed);
+
+            if (selectedTrack.getLength() <= vehicle.getTotalDistance()){
+                System.out.println("The winner is: " + vehicle.getName());
+                winnerNotKnown=false;
+                break;
+            }
         }
     }
 

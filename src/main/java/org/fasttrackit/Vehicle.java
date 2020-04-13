@@ -68,7 +68,7 @@ public class Vehicle {
 
             fuelLevel = fuelLevel - usedFuel;
 
-            System.out.println(" remaningFuel: " + fuelLevel);
+            System.out.println(" remainingFuel: " + fuelLevel);
 
             return traveledDistance;
 
