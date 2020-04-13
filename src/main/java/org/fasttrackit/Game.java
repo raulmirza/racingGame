@@ -1,6 +1,7 @@
 package org.fasttrackit;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -11,7 +12,7 @@ public class Game {
     private Track[] tracks = new Track[3];
     private List<Vehicle> competitors = new ArrayList<Vehicle>();
 
-    public void start() {
+    public void start() throws Exception {
 
 
         System.out.println("Welcome!");
@@ -86,13 +87,21 @@ public class Game {
         }
     }
 
-    private Track getSelectedTrackFromUser() {
+    private Track getSelectedTrackFromUser() throws Exception {
 
         System.out.println("Please select a track.");
-        Scanner scanner = new Scanner(System.in);
-        int trackNumber = scanner.nextInt();
-        return tracks[trackNumber - 1];
 
+        try {
+            Scanner scanner = new Scanner(System.in);
+            int trackNumber = scanner.nextInt();
+            return tracks[trackNumber - 1];
+        } catch (InputMismatchException e) {
+            throw new Exception("Please enter a number.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new RuntimeException("You have entered a wrong number");
+        }finally {
+            System.out.println("Finally block always executed.");
+        }
     }
 
      private String getVehicleNameFromUser() {
@@ -114,7 +123,14 @@ public class Game {
 
         System.out.println("Please enter speed:");
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextDouble();
+
+
+        try {
+            return scanner.nextDouble();
+        } catch (InputMismatchException e) {
+            System.out.println("You have entered an invalid value. Please try again.");
+            return getAccelerationSpeedFromUser();
+        }
 
     }
 
